@@ -75,7 +75,8 @@ public class App {
                 case 6:
                     ArrayBooks arrayBooks; 
                     arrayBooks = new ArrayBooks();
-                    arrayBooks.showBooks(); 
+                    arrayBooks.showBooks();
+                    break;
                 default:
                     System.out.println("Выберите номер из списка");
             }
