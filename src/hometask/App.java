@@ -5,13 +5,20 @@
  */
 package hometask;
 
+import tasks.CheckWords;
 import tasks.ArrayBooks;
 import tasks.WesternCalender;
 import tasks.MultiplicationTables;
 import tasks.RandomArray;
 import java.util.Scanner;
+import tasks.ArrayBooks;
+import tasks.MultiplicationTables;
 import tasks.TemperaturConverter;
 import tasks.NumberParcer;
+import tasks.NumberParcer;
+import tasks.RandomArray;
+import tasks.TemperaturConverter;
+import tasks.WesternCalender;
 
 
 /**
@@ -40,7 +47,8 @@ public class App {
             System.out.println("3.Вычесления массива случайных чисел");
             System.out.println("4.Восточный календарь");
             System.out.println("5.Таблица умножения");
-            System.out.println("6. книги");
+            System.out.println("6. Массив книг");
+            System.out.println("7. Проверка на содержание букв алфавита");
             System.out.print("Номер задачи ");
             int task = scanner.nextInt();
             switch (task) { /*sw-> tab*/
@@ -76,6 +84,11 @@ public class App {
                     ArrayBooks arrayBooks; 
                     arrayBooks = new ArrayBooks();
                     arrayBooks.showBooks();
+                    break;
+                case 7:
+                    CheckWords checkWords;
+                    checkWords = new CheckWords();
+                    checkWords.showWords();
                     break;
                 default:
                     System.out.println("Выберите номер из списка");
