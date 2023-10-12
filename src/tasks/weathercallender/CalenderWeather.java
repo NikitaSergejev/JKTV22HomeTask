@@ -22,12 +22,15 @@ public class CalenderWeather {
     public CalenderWeather() {
         scanner = new Scanner(System.in);
     }
-
+ 
     public void showWeather() {
-        System.out.println("Месяцы в году:");
+        MonthInYear[] months = MonthInYear.values();
+        
+        /*System.out.println("Месяцы в году:");
         for (MonthInYear month : MonthInYear.values()) {
         System.out.println(month);
-        }
+        }*/
+        
         System.out.println("----- Weather in year -----");        
         int [] [] weatherInYear = new int [12] [];
         weatherInYear[0] = new int[31];
@@ -46,23 +49,32 @@ public class CalenderWeather {
         int min = -30;
          Random random = new Random();
         for (int i = 0; i < weatherInYear.length; i++) {/*ctrl -> space*/
-            for (int j = 0; j < weatherInYear.length; j++) {
+            for (int j = 0; j < weatherInYear[i].length; j++) {
                 weatherInYear[i][j] = random.nextInt(max - min +1)+min;
                 
             }                             
         }
-        for (int i = 0; i < weatherInYear.length; i++) {/*ctrl -> space*/
-            for (int j = 0; j < weatherInYear.length; j++) {
-                 System.out.println(MonthInYear.values()[i] + " - " + weatherInYear[i][j] + " дней");  
-                
+        // Создайте и заполните массив с датами от 1 до 31 для января
+        int[] dayInMonth = new int[31];
+        for (int i = 0; i < dayInMonth.length; i++) {
+            dayInMonth[i] = i + 1;
+        }
+        // Выводите дни месяца вместе с температурой в виде таблицы
+        for (int j = 0; j < weatherInYear[i].length; j++) {
+            System.out.print("  День " + dayInMonth[j] + ": ");
+            int temperature = weatherInYear[i][j];
+            if (temperature < 0) {
+                System.out.print(temperature + "°C ");
+            } else {
+                System.out.print(" " + temperature + "°C ");
             }
-            System.out.println("");
+            System.out.println("------------------------");
         }
     
         boolean repeat = true;
         do {
             System.out.println("--- Задачи ---");
-            System.out.println("0.Закончить программу");
+            System.out.println("0.Выйти обратно в меню");
             System.out.println("1.Погода в указанную дату");
             System.out.println("2.Дни в которые былла самая тёплая и холодная погода");
             System.out.println("3.Средняя температура за указанный месяц");
