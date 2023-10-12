@@ -5,6 +5,7 @@
  */
 package hometask;
 
+import tasks.weathercallender.CalenderWeather;
 import tasks.CheckWords;
 import tasks.ArrayBooks;
 import tasks.WesternCalender;
@@ -49,6 +50,7 @@ public class App {
             System.out.println("5.Таблица умножения");
             System.out.println("6. Массив книг");
             System.out.println("7. Проверка на содержание букв алфавита");
+            System.out.println("8. Годовой прогноз погоды");
             System.out.print("Номер задачи ");
             int task = scanner.nextInt();
             switch (task) { /*sw-> tab*/
@@ -89,6 +91,11 @@ public class App {
                     CheckWords checkWords;
                     checkWords = new CheckWords();
                     checkWords.showWords();
+                    break;
+                case 8:
+                    CalenderWeather calenderWeather;
+                    calenderWeather = new CalenderWeather();
+                    calenderWeather.showWeather();
                     break;
                 default:
                     System.out.println("Выберите номер из списка");
