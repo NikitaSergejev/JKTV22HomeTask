@@ -25,13 +25,21 @@ public class CalenderWeather {
  
     public void showWeather() {
         MonthInYear[] months = MonthInYear.values();
+      
+        System.out.println("----- Weather in year -----");  
         
-        /*System.out.println("Месяцы в году:");
-        for (MonthInYear month : MonthInYear.values()) {
-        System.out.println(month);
-        }*/
-        
-        System.out.println("----- Weather in year -----");        
+        System.out.println("Месяцы в году:");
+        for (MonthInYear month : months) {
+        System.out.println(month); // Здесь "10" - ширина столбца
+        }  
+        int [] numberInMonth = new int [31];
+        for (int i = 0; i < numberInMonth.length; i++) {
+            numberInMonth[i] = i+1;         
+        }
+         for (int i = 0; i < numberInMonth.length; i++) {
+             System.out.printf("%3d",numberInMonth[i]);      
+        }
+         System.out.println(" ");
         int [] [] weatherInYear = new int [12] [];
         weatherInYear[0] = new int[31];
         weatherInYear[1] = new int[28];
@@ -50,25 +58,15 @@ public class CalenderWeather {
          Random random = new Random();
         for (int i = 0; i < weatherInYear.length; i++) {/*ctrl -> space*/
             for (int j = 0; j < weatherInYear[i].length; j++) {
-                weatherInYear[i][j] = random.nextInt(max - min +1)+min;
-                
-            }                             
+                weatherInYear[i][j] = random.nextInt(max - min +1)+min;                
+            }                            
         }
-        // Создайте и заполните массив с датами от 1 до 31 для января
-        int[] dayInMonth = new int[31];
-        for (int i = 0; i < dayInMonth.length; i++) {
-            dayInMonth[i] = i + 1;
-        }
-        // Выводите дни месяца вместе с температурой в виде таблицы
-        for (int j = 0; j < weatherInYear[i].length; j++) {
-            System.out.print("  День " + dayInMonth[j] + ": ");
-            int temperature = weatherInYear[i][j];
-            if (temperature < 0) {
-                System.out.print(temperature + "°C ");
-            } else {
-                System.out.print(" " + temperature + "°C ");
+         
+        for (int i = 0; i < weatherInYear.length; i++) {/*ctrl -> space*/         
+            for (int j = 0; j < weatherInYear.length; j++) {             
+                System.out.printf("%3d",weatherInYear[i][j]);                  
             }
-            System.out.println("------------------------");
+            System.out.println("");       
         }
     
         boolean repeat = true;
