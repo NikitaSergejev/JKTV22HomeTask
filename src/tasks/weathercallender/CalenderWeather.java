@@ -11,6 +11,9 @@ import java.util.Scanner;
 /**
  *
  * @author nikit
+ *  System.out.printf("%14s"," "); Эта строка используется для вывода строки шириной 
+ * в 14 символов, создавая пробел слева в вашей таблице. Это используется для 
+ * выравнивания заголовка таблицы с названиями месяцев.
  */
 public class CalenderWeather {
     private final Scanner scanner;
@@ -24,21 +27,13 @@ public class CalenderWeather {
     }
  
     public void showWeather() {
-        MonthInYear[] months = MonthInYear.values();
-      
-        System.out.println("----- Weather in year -----");  
-        
-        System.out.println("Месяцы в году:");
-        for (MonthInYear month : months) {
-        System.out.println(month); // Здесь "10" - ширина столбца
-        }  
+        MonthInYear[] months = MonthInYear.values();      
+        System.out.println("----- Weather in year -----");          
         int [] numberInMonth = new int [31];
         for (int i = 0; i < numberInMonth.length; i++) {
             numberInMonth[i] = i+1;         
         }
-         for (int i = 0; i < numberInMonth.length; i++) {
-             System.out.printf("%3d",numberInMonth[i]);      
-        }
+         
          System.out.println(" ");
         int [] [] weatherInYear = new int [12] [];
         weatherInYear[0] = new int[31];
@@ -61,10 +56,15 @@ public class CalenderWeather {
                 weatherInYear[i][j] = random.nextInt(max - min +1)+min;                
             }                            
         }
-         
-        for (int i = 0; i < weatherInYear.length; i++) {/*ctrl -> space*/         
-            for (int j = 0; j < weatherInYear.length; j++) {             
-                System.out.printf("%3d",weatherInYear[i][j]);                  
+         System.out.printf("%14s"," ");
+         for (int i = 0; i < numberInMonth.length; i++) {
+             System.out.printf("%-4d",numberInMonth[i]);      
+        }
+          System.out.println("");
+         for (int i = 0; i < weatherInYear.length; i++) {          
+            System.out.printf("%10s: ",months[i]);
+            for (int j = 0; j < weatherInYear[i].length; j++) {
+                System.out.printf("%4d",weatherInYear[i][j]);
             }
             System.out.println("");       
         }
